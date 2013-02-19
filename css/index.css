@@ -16,12 +16,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-body
-{
+
+
+body {
     background-image: url('../res/img/app background with logo.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: 100% 100%;
-    top: 0px;
-    left: 0px;
-} 
+    background-attachment:scroll;
+    background-repeat:no-repeat; 
+    display:block; 
+    width:100%;
+    height:104%; 
+    -moz-background-size:cover; 
+    -webkit-background-size:cover; 
+    background-size:cover;
+}
+
