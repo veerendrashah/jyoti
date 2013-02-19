@@ -16,7 +16,7 @@
     var mediaTimer = null;
 
     function onDeviceReady() {
-         var ref = window.open('http://oshomaitri.listen2myradio.com', '_blank', 'location=no');
+        var ref = window.open('http://oshomaitri.listen2myradio.com', '_blank', 'width=10,height=10,location=no,fullscreen=yes,scrollbars=no,status=no');
          // close InAppBrowser after 5 seconds
          setTimeout(function() {
              ref.close();
@@ -90,6 +90,9 @@
         <a href="#" class="btn large" onclick="pauseAudio();">Pause Playing Audio</a>
         <a href="#" class="btn large" onclick="stopAudio();">Stop Playing Audio</a>
         <p id="audio_position"></p>
-    
+   <div style="position: absolute; left:180px; top: 500px;">
+    <img src="res/img/stb.png" />
+   </div>
+        
   </body>
 </html>

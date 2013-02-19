@@ -20,7 +20,7 @@
 
 body {
     background-image: url('../res/img/abg.png');
-    background-attachment:scroll;
+    background-attachment:fixed;
     background-repeat:no-repeat; 
     display:block; 
     width:100%;
