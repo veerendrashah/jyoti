@@ -59,19 +59,18 @@
      }
 
      function stopAudio() {
-         if (my_media == null) {
+         if (typeof my_media === "undefined") {
              playAudio("http://95.154.254.151:24678/;");
              return;
          }
-         if (my_media) {
-             document.getElementById("btn").src = "res/img/plb.png";
-             my_media.stop();
-         }
-         else {
-             document.getElementById("btn").src = "res/img/stb.png";
-             my_media.play();
-         }
-         
+        if (my_media) {
+            document.getElementById("btn").src = "res/img/plb.png";
+            my_media.stop();
+        }
+        else {
+            document.getElementById("btn").src = "res/img/stb.png";
+            my_media.play();
+        }
 
 //         clearInterval(mediaTimer);
 //         mediaTimer = null;
