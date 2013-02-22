@@ -18,15 +18,30 @@
  */
 
 
-body {
+bodys {
     background-image: url('../res/img/abg.png');
-    background-attachment:fixed;
+    background-attachment:inherit;
     background-repeat:no-repeat; 
-    display:block; 
-    width:100%;
-    height:104%; 
-    -moz-background-size:cover; 
-    -webkit-background-size:cover; 
+    width:auto;
+    height:auto; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size:cover;
+    position: absolute;
 }
 
+
+body { 
+background: url('../res/img/abg.png') no-repeat center center fixed;
+    width:auto;
+    height:auto; 
+-moz-background-size: cover;
+
+-webkit-background-size: cover;
+
+-o-background-size: cover;
+
+background-size: cover;
+
+} 
