@@ -20,7 +20,7 @@
          // close InAppBrowser after 5 seconds
          setTimeout(function() {
              ref.close();
-             playAudio("http://95.154.254.151:24678/;");
+             playAudio("http://95.154.254.151:24678/;");             
          }, 10000);
      }
 
@@ -30,7 +30,7 @@
 
          // Play audio
          my_media.play();
-
+         document.getElementById("btn").src = "res/img/stb.png";
 //         // Update my_media position every second
 //         if (mediaTimer == null) {
 //             mediaTimer = setInterval(function () {
@@ -60,10 +60,17 @@
 
      function stopAudio() {
          if (my_media) {
-             my_media.stop();
+             document.getElementById("btn").src = "res/img/plb.png";
+             my_media.stop();             
          }
-         clearInterval(mediaTimer);
-         mediaTimer = null;
+         else {
+             document.getElementById("btn").src = "res/img/stb.png";
+             my_media.play();             
+         }
+         
+
+//         clearInterval(mediaTimer);
+//         mediaTimer = null;
      }
 
      function onSuccess() {
@@ -86,12 +93,13 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
   <body>
-  <a href="#" class="btn large" onclick="playAudio('http://95.154.254.151:24678/;');">Play Audio</a>
+<!--  <a href="#" class="btn large" onclick="playAudio('http://95.154.254.151:24678/;');">Play Audio</a>
         <a href="#" class="btn large" onclick="pauseAudio();">Pause Playing Audio</a>
         <a href="#" class="btn large" onclick="stopAudio();">Stop Playing Audio</a>
-        <p id="audio_position"></p>
-   <div style="position: absolute; left:180px; top: 500px;">
-    <img src="res/img/stb.png" />
+        <p id="audio_position"></p>-->
+   <div style="position: absolute; left:10px; top: 10px; height:auto width:auto">
+    <img width ="50px" height="50px" src="res/img/stb.png" onclick="stopAudio();" 
+           id="btn" />
    </div>
         
   </body>
