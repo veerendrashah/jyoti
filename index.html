@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InAppBrowser.close Example</title>
+    <title>OSHO MAITRI</title>
     
     <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>
     <script type="text/javascript" charset="utf-8">
@@ -60,20 +60,16 @@
 
      function stopAudio() {
          if (typeof my_media === "undefined" || my_media ==null) {
-             alert("undefined condition");
              playAudio("http://95.154.254.151:24678/;");
              return;
          }
          if (my_media) {
-             alert("stop condition1");
              document.getElementById("btn").src = "res/img/plb.png";
-             alert("stop condition2");
              my_media.stop();
              my_media.release();
              my_media = null;
         }
         else {
-            alert("play condition");
             document.getElementById("btn").src = "res/img/stb.png";
             my_media.play();
         }
