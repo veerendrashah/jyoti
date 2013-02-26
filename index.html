@@ -11,22 +11,9 @@
 
     function pageLoad() {
           document.addEventListener("deviceready", onDeviceReady, false);
-          document.addEventListener("backbutton", onBackButton, false);
+
     }
 
-    function onBackButton()
-    {
-         if (my_media) {
-             document.getElementById("btn").src = "res/img/plb.png";
-             my_media.stop();
-             my_media.release();
-             my_media = null;
-        }
-        else
-        {        
-             my_media = null;
-        }
-    }
     
     function onDeviceReady() {
         var ref = window.open('http://oshomaitrihindi.listen2myradio.com', '_blank', 'left=1000,top=1000,location=no,scrollbars=no,status=no');
