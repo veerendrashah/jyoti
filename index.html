@@ -16,14 +16,9 @@
 
     
     function onDeviceReady() {
-        var ref = window.open('http://oshomaitrihindi.listen2myradio.com', '_blank', 'left=1000,top=1000,location=no,scrollbars=no,status=no');
+        var ref = window.open('http://radio.oshomaitri.org', '_blank', 'location=no,scrollbars=no,status=no');
          // close InAppBrowser after 5 seconds
-         setTimeout(function() {
-             ref.close();
-             document.getElementById("btn").disabled = true;
-             playAudio("http://87.117.203.112:18716/;");
-             document.getElementById("btn").disabled = false;
-         }, 5000);
+    
      }
 
      function playAudio(src) {
