@@ -28,6 +28,7 @@
     <preference name="prerendered-icon" value="true" />
     <preference name="exit-on-suspend" value="false" />
  
-    <icon src="res/img/icon.png" />
-    
+
+    <icon src="res/img/icon.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="res/img/icon.png" gap:platform="ios" width="72" height="72"/>
 </widget>
