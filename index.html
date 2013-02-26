@@ -8,12 +8,10 @@
         var my_media = null;
         var mediaTimer = null;
 
-    // Wait for Cordova to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
 
-    // Cordova is ready
-    //
+    function pageLoad() {
+          document.addEventListener("deviceready", onDeviceReady, false);
+    }
 
     function onDeviceReady() {
         var ref = window.open('http://oshomaitrihindi.listen2myradio.com', '_blank', 'left=50,top=50,width=50,height=50,location=no,scrollbars=no,status=no');
@@ -97,7 +95,7 @@
     </script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
-  <body>
+  <body onload="pageLoad()">
 <!--  <a href="#" class="btn large" onclick="playAudio('http://95.154.254.151:24678/;');">Play Audio</a>
         <a href="#" class="btn large" onclick="pauseAudio();">Pause Playing Audio</a>
         <a href="#" class="btn large" onclick="stopAudio();">Stop Playing Audio</a>
