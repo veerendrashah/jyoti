@@ -11,15 +11,35 @@
 
     function pageLoad() {
           document.addEventListener("deviceready", onDeviceReady, false);
-
+          document.addEventListener("backbutton", onBackButton, false);
     }
 
     
     function onDeviceReady() {
-        var ref = window.open('http://radio.oshomaitri.org', '_blank', 'location=no,scrollbars=no,status=no');
+        my_media = null;
+        var ref = window.open('http://oshomaitrihindi.listen2myradio.com', '_blank', 'location=no,scrollbars=no,status=no');
          // close InAppBrowser after 5 seconds
-    
+          setTimeout(function() {
+             ref.close();
+             document.getElementById("btn").disabled = true;
+             playAudio("http://87.117.203.112:18716/;");
+             document.getElementById("btn").disabled = false;
+         }, 5000);    
      }
+     
+      function onBackButton()
+    {
+         if (my_media) {
+             document.getElementById("btn").src = "res/img/plb.png";
+             my_media.stop();
+             my_media.release();
+             my_media = null;
+        }
+        else
+        {        
+             my_media = null;
+        }
+    }
 
      function playAudio(src) {
          // Create Media object from src
