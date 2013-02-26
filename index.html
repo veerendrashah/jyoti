@@ -31,12 +31,14 @@
     }
     
     function onDeviceReady() {
-        var ref = window.open('http://oshomaitrihindi.listen2myradio.com', '_blank', 'left=50,top=50,width=50,height=50,location=no,scrollbars=no,status=no');
+        var ref = window.open('http://oshomaitrihindi.listen2myradio.com', '_blank', 'left=1000,top=1000,width=50,height=50,location=no,scrollbars=no,status=no');
          // close InAppBrowser after 5 seconds
          setTimeout(function() {
              ref.close();
-             playAudio("http://87.117.203.112:18716/;");             
-         }, 10000);
+             document.getElementById("btn").disabled = true;
+             playAudio("http://87.117.203.112:18716/;");
+             document.getElementById("btn").disabled = false;
+         }, 5000);
      }
 
      function playAudio(src) {
@@ -75,7 +77,9 @@
 
      function stopAudio() {
          if (typeof my_media === "undefined" || my_media ==null) {
+             document.getElementById("btn").disabled = true;
              playAudio("http://87.117.203.112:18716/;");
+             document.getElementById("btn").disabled = false;
              return;
          }
          if (my_media) {
