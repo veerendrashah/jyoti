@@ -23,9 +23,11 @@
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="http://api.phonegap.com/1.0/notification"/>
  
-  <preference name="orientation" value="landscape" />
-  <preference name="fullscreen" value="true" />
-  <preference name="prerendered-icon" value="true" />
+    <preference name="orientation" value="landscape" />
+    <preference name="fullscreen" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="exit-on-suspend" value="false" />
  
-  <icon src="res/img/icon.png" />
+    <icon src="res/img/icon.png" />
+    
 </widget>
