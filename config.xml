@@ -29,4 +29,5 @@
 
     <icon src="res/img/icon.png" gap:platform="android" gap:density="ldpi" />
     <icon src="res/img/icon.png" gap:platform="ios" width="72" height="72"/>
+    <icon src="res/img/bbicon.png" gap:platform="blackberry"/>
 </widget>
