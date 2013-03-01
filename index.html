@@ -28,6 +28,8 @@
     {
          if (my_media) {
              document.getElementById("btn").src = "res/img/plb.png";
+             document.removeEventListener("deviceready",onDeviceReady,false);
+             document.removeEventListener("backbutton",onBackButton,false);
              my_media.stop();
              my_media.release();
              my_media = null;
