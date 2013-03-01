@@ -25,19 +25,20 @@
      }
      
       function onBackButton()
-    {
-         if (my_media) {
-             document.getElementById("btn").src = "res/img/plb.png";
-             document.removeEventListener("deviceready",onDeviceReady,false);
-             document.removeEventListener("backbutton",onBackButton,false);
-             my_media.stop();
-             my_media.release();
-             my_media = null;
-        }
-        else
-        {        
-             my_media = null;
-        }
+      {
+           if (my_media) {
+               document.getElementById("btn").src = "res/img/plb.png";
+               my_media.stop();
+               my_media.release();
+               my_media = null;
+               document.removeEventListener("deviceready",onDeviceReady,false);
+               document.removeEventListener("backbutton",onBackButton,false);
+  
+              }
+          else
+          {        
+               my_media = null;
+          }
     }
 
      function playAudio(src) {
