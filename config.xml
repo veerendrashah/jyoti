@@ -22,7 +22,8 @@
     <feature name="http://api.phonegap.com/1.0/media"/>
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="http://api.phonegap.com/1.0/notification"/>
- 
+    <feature id="blackberry.system.event" version="1.0.0"/>
+
     <preference name="orientation" value="portrait" />
     <preference name="prerendered-icon" value="true" />
     <preference name="exit-on-suspend" value="true" />
