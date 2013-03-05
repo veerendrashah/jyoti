@@ -23,6 +23,23 @@
         );
     }
     
+    blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,
+    function() {
+      if (my_media) {
+               document.getElementById("btn").src = "res/img/plb.png";
+               my_media.stop();
+               my_media.release();
+               my_media = null;
+               document.removeEventListener("deviceready",onDeviceReady,false);
+               document.removeEventListener("backbutton",onBackButton,false);
+  
+              }
+          else
+          {        
+               my_media = null;
+          }
+    });
+    
     function pageLoad() {
           document.addEventListener("deviceready", onDeviceReady, false);
           document.addEventListener("backbutton", onBackButton, false);
