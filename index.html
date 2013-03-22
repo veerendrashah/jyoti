@@ -1,165 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OSHO MAITRI</title>
-    
-    <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        var my_media = null;
-        var mediaTimer = null;
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>OSHO MAITRI</title>
 
-    function onLoad() {
-        // BlackBerry OS 4 browser does not support events.
-        // So, manually wait until PhoneGap is available.
-        //
-        var intervalID = window.setInterval(
-          function() {
-              if (PhoneGap.available) {
-                  window.clearInterval(intervalID);
-                  onDeviceReady();
-              }
-          },
-          500
-        );
-    }
-    
-    blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,
-    function() {
-      if (my_media) {
-               document.getElementById("btn").src = "res/img/plb.png";
-               my_media.stop();
-               my_media.release();
-               my_media = null;
-               document.removeEventListener("deviceready",onDeviceReady,false);
-               document.removeEventListener("backbutton",onBackButton,false);
+
+
+
+   <style type="text/css">
+/* Remove margins from the 'html' and 'body' tags, and ensure the page takes up full screen height */
+html, body {height:100%; margin:0; padding:0;}
+/* Set the position and dimensions of the background image. */
+#page-background {position:absolute; width:100%; height:100%; }
+/* Specify the position and layering for the content that needs to appear in front of the background image. Must have a higher z-index value than the background image. Also add some padding to compensate for removing the margin from the 'html' and 'body' tags. */
+#content {position:relative; padding:0px; text-align:center; top:-200px;}
+
+</style>
+
+
+</head>
+<body onload="ready();">
   
-              }
-          else
-          {        
-               my_media = null;
-          }
-    });
-    
-    function pageLoad() {
-          document.addEventListener("deviceready", onDeviceReady, false);
-          document.addEventListener("backbutton", onBackButton, false);
-    }
-
-    
-    function onDeviceReady() {
-        my_media = null;
-        var ref = window.open('http://oshomaitrihindi.listen2myradio.com', '_blank', 'location=no,scrollbars=no,status=no');
-         // close InAppBrowser after 5 seconds
-          setTimeout(function() {
-             ref.close();
-             alert("device loaded");
-             document.getElementById("btn").disabled = true;
-             playAudio("http://87.117.203.112:18716/;");
-             document.getElementById("btn").disabled = false;             
-         }, 5000);    
-     }
-     
-      function onBackButton()
-      {
-           if (my_media) {
-               document.getElementById("btn").src = "res/img/plb.png";
-               my_media.stop();
-               my_media.release();
-               my_media = null;
-               document.removeEventListener("deviceready",onDeviceReady,false);
-               document.removeEventListener("backbutton",onBackButton,false);
-  
-              }
-          else
-          {        
-               my_media = null;
-          }
-    }
-
-     function playAudio(src) {
-         // Create Media object from src
-         my_media = new Media(src, onSuccess, onError);
-
-         // Play audio
-         my_media.play();
-         document.getElementById("btn").src = "res/img/stb.png";
-//         // Update my_media position every second
-//         if (mediaTimer == null) {
-//             mediaTimer = setInterval(function () {
-//                 // get my_media position
-//                 my_media.getCurrentPosition(
-//                 // success callback
-//                        function (position) {
-//                            if (position > -1) {
-//                                setAudioPosition((position) + " sec");
-//                            }
-//                        },
-//                 // error callback
-//                        function (e) {
-//                            console.log("Error getting pos=" + e);
-//                            setAudioPosition("Error: " + e);
-//                        }
-//                    );
-//             }, 1000);
-//         }
-     }
-
-     function pauseAudio() {
-         if (my_media) {
-             my_media.pause();
-         }
-     }
-
-     function stopAudio() {
-         if (typeof my_media === "undefined" || my_media ==null) {
-             document.getElementById("btn").disabled = true;
-             playAudio("http://87.117.203.112:18716/;");
-             document.getElementById("btn").disabled = false;
-             return;
-         }
-         if (my_media) {
-             document.getElementById("btn").src = "res/img/plb.png";
-             my_media.stop();
-             my_media.release();
-             my_media = null;
-        }
-        else {
-            document.getElementById("btn").src = "res/img/stb.png";
-            my_media.play();
+   <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>
+   <script>
+       var English = "http://87.117.201.136:21250/;";
+       var Hindi = "http://87.117.203.112:18716/;";
+       var CurChanel;
+       var CurStatus = null;
+       var playerInstance = null;
+       function ready() {
+           document.addEventListener("deviceready", onDeviceReady, false);
+           document.addEventListener("backbutton", onBackButton, false);
         }
 
-//         clearInterval(mediaTimer);
-//         mediaTimer = null;
+
+        function onDeviceReady() {
+            my_media = null;
+            var ref1 = window.open('http://oshomaitrihindi.listen2myradio.com', '_blank', 'location=no,scrollbars=no,status=no');
+            var ref2 = window.open('http://oshomaitrieng.listen2myradio.com', '_blank', 'location=no,scrollbars=no,status=no');
+            // close InAppBrowser after 5 seconds
+            setTimeout(function () {
+                ref1.close();
+                ref2.close();
+                document.getElementById("hnd").play();
+            }, 10000);
+        }
+
+        function onBackButton() {
+            document.getElementById("eng").pause();
+            document.getElementById("hnd").pause();
+        }
+
+     function HindiClick() {
+         document.getElementById("eng").pause();
+         document.getElementById("hnd").play();
      }
 
-     function onSuccess() {         
-         console.log("playAudio():Audio Success");
+     function EnglishClick() {
+         document.getElementById("hnd").pause();
+         document.getElementById("eng").play();
      }
+   </script>
 
-     // onError Callback 
-     //
-     function onError(error) {
-         alert('code: ' + error.code + '\n' +
-                  'message: ' + error.message + '\n');
-     }
 
-     // Set audio position
-     // 
-     function setAudioPosition(position) {
-         document.getElementById('audio_position').innerHTML = position;
-     }    
-    </script>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-  </head>
-  <body onload="pageLoad()">
-<!--  <a href="#" class="btn large" onclick="playAudio('http://95.154.254.151:24678/;');">Play Audio</a>
-        <a href="#" class="btn large" onclick="pauseAudio();">Pause Playing Audio</a>
-        <a href="#" class="btn large" onclick="stopAudio();">Stop Playing Audio</a>
-        <p id="audio_position"></p>-->
-   <div style="position: absolute; left:10px; top: 10px; height:auto width:auto">
-    <img width ="50px" height="50px" src="res/img/stb.png" onclick="stopAudio();" 
-           id="btn" />
-   </div>
-        
-  </body>
+   <div  id="page-background" >
+        <div><img src="res/img/abg.png" width="100%" height="100%"  alt="Smil"></div>        
+
+
+        <div id="content">
+            <audio id="hnd" src="http://87.117.203.112:18716/;" >
+            </audio>
+
+            <audio id="eng" src= "http://87.117.201.136:21250/;" left=50px >
+            </audio>
+                   
+            <br />       
+            <img src="res/img/hnd.png" alt="Smil" onclick="HindiClick();" >
+            <img src="res/img/eng.png" alt="Smil" onclick="EnglishClick();" >
+        </div> 
+
+  </div>
+
+
+
+
+
+
+</body>
 </html>
