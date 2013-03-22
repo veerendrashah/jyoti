@@ -2,7 +2,7 @@
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.oshomaitri.radio"
-        versionCode="10" 
+        versionCode="1" 
         version   = "1.0.0">
 
     <!-- versionCode is optional and Android only -->
@@ -16,19 +16,20 @@
     <author href="http://radio.oshomaitri.org" email="hello@oshomaitri.org">
         JYOTI
     </author>
-
+      <plugin name="InAppBrowser" value="CDVInAppBrowser" />
+      
     <feature name="http://api.phonegap.com/1.0/file"/>
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
     <feature name="http://api.phonegap.com/1.0/media"/>
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="http://api.phonegap.com/1.0/notification"/>
-    <feature id="blackberry.system.event" version="1.0.0"/>
-
+ 
     <preference name="orientation" value="portrait" />
     <preference name="prerendered-icon" value="true" />
     <preference name="exit-on-suspend" value="true" />
 
     <icon src="res/img/icon.png" gap:platform="android" gap:density="ldpi" />
     <icon src="res/img/icon.png" gap:platform="ios" width="72" height="72"/>
-    <icon src="res/img/bbicon.png" gap:platform="blackberry"/>
+
+
 </widget>
