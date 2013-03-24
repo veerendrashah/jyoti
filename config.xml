@@ -27,7 +27,10 @@
     <preference name="orientation" value="portrait" />
     <preference name="prerendered-icon" value="true" />
     <preference name="exit-on-suspend" value="true" />
-
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    
     <icon src="res/img/icon.png" gap:platform="android" gap:density="ldpi" />
     <icon src="res/img/icon.png" gap:platform="ios" width="72" height="72"/>
 
