@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.oshomaitri.radio"
+        id        = "com.oshomaitri"
         versionCode="1" 
         version   = "1.0.0">
 
@@ -16,7 +16,7 @@
     <author href="http://radio.oshomaitri.org" email="hello@oshomaitri.org">
         JYOTI
     </author>
-      <plugin name="InAppBrowser" value="CDVInAppBrowser" />
+    <plugin name="InAppBrowser" value="CDVInAppBrowser" />
       
     <feature name="http://api.phonegap.com/1.0/file"/>
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
@@ -31,7 +31,6 @@
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
     
-    <icon src="res/img/icon.png" gap:platform="android" gap:density="ldpi" />
     <icon src="res/img/icon.png" gap:platform="ios" width="72" height="72"/>
 
 
